@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <PackageId>Lombok.NET</PackageId>
+        <Version>2.4.1</Version>
+        <Authors>Collin Alpert</Authors>
+        <Title>.NET adaptation for Java's Lombok using Source Generators.</Title>
+        <Description>This library is to .NET what Lombok is to Java. It generates constructors and other fun stuff using Source Generators for those classes you specify special attributes for.</Description>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageProjectUrl>https://github.com/CollinAlpert/Lombok.NET</PackageProjectUrl>
+        <PackageTags>lombok dotnet source-generators roslyn</PackageTags>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <Copyright>2022 © Collin Alpert</Copyright>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <NoWarn>RS2008</NoWarn>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="..\README.md" Pack="true" PackagePath="\"/>
+        <None Include="$(OutputPath)\$(AssemblyName).dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
+    </ItemGroup>
+    
+    <ItemGroup>
+        <InternalsVisibleTo Include="$(AssemblyName).Test" />
+    </ItemGroup>
+
+</Project>
